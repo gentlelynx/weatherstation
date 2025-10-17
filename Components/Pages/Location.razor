@@ -1,0 +1,38 @@
+@page "/location"
+@using Microsoft.Extensions.Options
+@rendermode InteractiveServer
+
+<PageTitle>Location</PageTitle>
+
+<section id="location" class="location">
+    <div id="time" class="time">@TimeOnly.FromDateTime(DateTime.Now)</div>
+    <h2>Plats</h2>
+    <InputSelect @bind-Value="selectedLocation" @onchange="HandleLocationSwitch">
+        @foreach (string option in options)
+        {
+            <option value="@option">@option</option>
+        }
+    </InputSelect>
+    <div id="date" class="date">@DateOnly.FromDateTime(DateTime.Now)</div>
+</section>
+
+@code {
+    private string? selectedLocation;
+    private string[] options = { "Skövde", "Göteborg", "Stockholm" };
+
+    private void HandleLocationSwitch(ChangeEventArgs e)
+    {
+        if (options.ToString() == options[0])
+        {
+            Console.WriteLine(options[0]);
+        }
+        else if (options.ToString() == options[1])
+        {
+            Console.WriteLine(options[1]);
+        }
+        else
+        {
+            Console.WriteLine(options[2]);
+        }
+    }
+}
