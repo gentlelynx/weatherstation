@@ -60,10 +60,21 @@ h1:focus {
     text-align: start;
 }
 
+main {
+    display: flex;
+    margin: auto;
+}
+
 section {
     display: flex;
+    justify-content: center;
     margin: auto;
     padding: 2px 1px;
     background-color: #FFFBF4;
     border: #DBE3FF 4px solid;
+}
+
+.time, .date {
+    margin: 2px;
+    padding: 1px;
 }

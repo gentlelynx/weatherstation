@@ -1,0 +1,2 @@
+//Skövde
+GET https://opendata-download-metfcst.smhi.se/api/category/snow1g/version/1/geotype/point/lon/13.8406/lat/58.3953/data.json

@@ -1,0 +1,2 @@
+//Göteborg
+GET https://opendata-download-metfcst.smhi.se/api/category/snow1g/version/1/geotype/point/lon/11.9924/lat/57.7156/data.json

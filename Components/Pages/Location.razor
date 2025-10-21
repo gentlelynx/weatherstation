@@ -1,5 +1,9 @@
 @page "/location"
+@inject IHttpClientFactory _clientFactory
 @using Microsoft.Extensions.Options
+@using System.Runtime.CompilerServices
+@using System.Threading.Tasks
+@using WeatherStation
 @rendermode InteractiveServer
 
 <PageTitle>Location</PageTitle>
@@ -7,32 +11,54 @@
 <section id="location" class="location">
     <div id="time" class="time">@TimeOnly.FromDateTime(DateTime.Now)</div>
     <h2>Plats</h2>
-    <InputSelect @bind-Value="selectedLocation" @onchange="HandleLocationSwitch">
+    <InputSelect @bind-Value="forecast" @onchange="HandleLocationSwitch">
         @foreach (string option in options)
         {
             <option value="@option">@option</option>
         }
     </InputSelect>
     <div id="date" class="date">@DateOnly.FromDateTime(DateTime.Now)</div>
+    <div>@forecast</div>
 </section>
 
 @code {
-    private string? selectedLocation;
-    private string[] options = { "Skövde", "Göteborg", "Stockholm" };
+    public WeatherObject? forecast;
 
-    private void HandleLocationSwitch(ChangeEventArgs e)
+    private string[] options = { "", "Skövde", "Göteborg", "Stockholm" };
+    string? errorMessage;
+    private async Task HandleLocationSwitch(ChangeEventArgs e)
     {
-        if (options.ToString() == options[0])
+        if (options.ToString() == options[1])
         {
-            Console.WriteLine(options[0]);
+            Console.WriteLine(options[2]);
         }
-        else if (options.ToString() == options[1])
+        else if (options.ToString() == options[2])
         {
-            Console.WriteLine(options[1]);
+            Console.WriteLine(options[2]);
         }
         else
         {
-            Console.WriteLine(options[2]);
+            Console.WriteLine(options[3]);
+        }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var request = new HttpRequestMessage(HttpMethod.Get,
+        "https://opendata-download-metfcst.smhi.se/api/category/snow1g/version/1/geotype/point/lon/13.8406/lat/58.3953/data.json");
+
+        var client = _clientFactory.CreateClient();
+
+        HttpResponseMessage response = await client.SendAsync(request);
+
+        if (response.IsSuccessStatusCode)
+        {
+            forecast = await response.Content.ReadFromJsonAsync<WeatherObject>();
+            errorMessage = null;
+        }
+        else
+        {
+            errorMessage = $"Error fetching data: {response.ReasonPhrase}";
         }
     }
 }
