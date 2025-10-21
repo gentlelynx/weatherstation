@@ -18,12 +18,11 @@
         }
     </InputSelect>
     <div id="date" class="date">@DateOnly.FromDateTime(DateTime.Now)</div>
-    <div>@forecast</div>
+    <div>@forecast?.CreatedTime?.ToString()</div>
 </section>
 
 @code {
-    public WeatherObject? forecast;
-
+    public WeatherClass? forecast;
     private string[] options = { "", "Skövde", "Göteborg", "Stockholm" };
     string? errorMessage;
     private async Task HandleLocationSwitch(ChangeEventArgs e)
@@ -53,7 +52,7 @@
 
         if (response.IsSuccessStatusCode)
         {
-            forecast = await response.Content.ReadFromJsonAsync<WeatherObject>();
+            forecast = await response.Content.ReadFromJsonAsync<WeatherClass>();
             errorMessage = null;
         }
         else
