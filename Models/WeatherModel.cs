@@ -6,39 +6,35 @@ namespace WeatherStation
     {
         //var type VariableName
         public string? CreatedTime { get; set; }
+        public WeatherGeometry? Geometry { get; set; }
         //var type of class[] variable 
+        public TimeSeriesEntry[]? TimeSeries { get; set; }
         public override string ToString()
         {
-            return CreatedTime;
+            return TimeSeries[1].Data.Air_temperature.ToString();
         }
+    }
+    public class WeatherGeometry
+    {
+        public string? Type { get; set; }
+        public float[]? Coordinates { get; set; }
 
-//         public Geometries[]? Geometry { get; set; }
-//         public TimeSerie[]? TimeSeries { get; set; }
-  
-//         public class Geometries
-//         {
-//             public string? Coordinates { get; set; }
-//             public override string ToString()
-//             {
-//                 return Coordinates;
-//             }
-//         }
+    }
+    public class TimeSeriesEntry
+    {
+        public string? Time { get; set; }
+        public DataEntry Data { get; set; }
+        public class DataEntry
+        {
+            public float? Air_temperature { get; set; }
+            public float? Wind_speed { get; set; }
+            public int? Wind_from_direction { get; set; }
+            public float? Wind_speed_of_gust { get; set; }
+            public int? Relative_humidity { get; set; }
+            public float? Air_pressure_at_mean_sea_level { get; set; }
+            public float? Precipitation_amount_min { get; set; }
+            public float? Precipitation_amount_max { get; set; }
+        }
+    }
+}
 
-//         public class TimeSerie
-//         {
-//             public Data[]? Data { get; set; }
-//         }
-
-//         public class Data
-//         {
-//             public string? Air_temperature { get; set; }
-//             public int Wind_speed { get; set; }
-//             public int Wind_from_direction { get; set; }
-//             public int Wind_speed_of_gust { get; set; }
-//             public int Relative_humidity { get; set; }
-//             public int Air_pressure_at_mean_sea_level { get; set; }
-//             public int Precipitation_amount_min { get; set; }
-//             public int Precipitation_amount_max { get; set; }
-//         }
-     }
- }

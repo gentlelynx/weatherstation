@@ -18,7 +18,7 @@
         }
     </InputSelect>
     <div id="date" class="date">@DateOnly.FromDateTime(DateTime.Now)</div>
-    <div>@forecast?.CreatedTime?.ToString()</div>
+    <div>@forecast?.ToString()</div>
 </section>
 
 @code {
