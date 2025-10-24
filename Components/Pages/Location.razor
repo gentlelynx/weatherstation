@@ -1,5 +1,6 @@
 @page "/location"
 @inject IHttpClientFactory _clientFactory
+@using Microsoft.AspNetCore.Http.Features
 @using Microsoft.Extensions.Options
 @using System.Runtime.CompilerServices
 @using System.Threading.Tasks
@@ -7,25 +8,24 @@
 @rendermode InteractiveServer
 
 <PageTitle>Location</PageTitle>
-
+<div class="time">@forecastSkovde?.ToString()</div>
 <section id="location" class="location">
-    <div id="time" class="time">@TimeOnly.FromDateTime(DateTime.Now)</div>
-    <h2>Plats</h2>
-    <InputSelect @bind-Value="forecast" @onchange="HandleLocationSwitch">
+    <div id="date" class="date numbers">@DateOnly.FromDateTime(DateTime.Now)</div>
+    <h2 class="Skövde">Skövde</h2>
+    @* <InputSelect @bind-Value="forecastSkovde" @onchange="HandleLocationSwitch">
         @foreach (string option in options)
         {
             <option value="@option">@option</option>
         }
-    </InputSelect>
-    <div id="date" class="date">@DateOnly.FromDateTime(DateTime.Now)</div>
-    <div>@forecast?.ToString()</div>
+    </InputSelect> *@
+    <div id="time" class="time numbers">@TimeOnly.FromDateTime(DateTime.Now)</div>
 </section>
 
 @code {
-    public WeatherClass? forecast;
-    private string[] options = { "", "Skövde", "Göteborg", "Stockholm" };
+    public WeatherClass? forecastSkovde;
+/*    private string[] options = { "", "Skövde", "Göteborg", "Stockholm" };*/
     string? errorMessage;
-    private async Task HandleLocationSwitch(ChangeEventArgs e)
+/*    private async Task HandleLocationSwitch(ChangeEventArgs e)
     {
         if (options.ToString() == options[1])
         {
@@ -39,7 +39,7 @@
         {
             Console.WriteLine(options[3]);
         }
-    }
+    }*/
 
     protected override async Task OnInitializedAsync()
     {
@@ -52,7 +52,7 @@
 
         if (response.IsSuccessStatusCode)
         {
-            forecast = await response.Content.ReadFromJsonAsync<WeatherClass>();
+            forecastSkovde = await response.Content.ReadFromJsonAsync<WeatherClass>();
             errorMessage = null;
         }
         else
