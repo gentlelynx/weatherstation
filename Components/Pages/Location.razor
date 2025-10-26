@@ -8,7 +8,7 @@
 @rendermode InteractiveServer
 
 <PageTitle>Location</PageTitle>
-<div class="time">@forecastSkovde?.ToString()</div>
+<div class="numbers">@forecastSkovde?.ToString()</div>
 <section id="location" class="location">
     <div id="date" class="date numbers">@DateOnly.FromDateTime(DateTime.Now)</div>
     <h2 class="Skövde">Skövde</h2>
@@ -18,7 +18,7 @@
             <option value="@option">@option</option>
         }
     </InputSelect> *@
-    <div id="time" class="time numbers">@TimeOnly.FromDateTime(DateTime.Now)</div>
+    <div id="time" class="numbers">@TimeOnly.FromDateTime(DateTime.Now)</div>
 </section>
 
 @code {
