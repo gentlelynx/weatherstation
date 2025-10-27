@@ -43,6 +43,46 @@ namespace WeatherStation
             public float Symbol_code { get; set; } = 0;
         }
 
+        public string WindDirection()
+        {
+            if (Data?.Wind_from_direction <= 338 && Data?.Wind_from_direction >= 23)
+            {
+                return "norr";
+            }
+            else if (Data?.Wind_from_direction <= 23 && Data?.Wind_from_direction >= 68)
+            {
+                return "nordost";
+            }
+            else if (Data?.Wind_from_direction <= 68 && Data?.Wind_from_direction >= 113)
+            {
+                return "öst";
+            }
+            else if (Data?.Wind_from_direction <= 113 && Data?.Wind_from_direction >= 158)
+            {
+                return "sydost";
+            }
+            else if (Data?.Wind_from_direction <= 158 && Data?.Wind_from_direction >= 203)
+            {
+                return "syd";
+            }
+            else if (Data?.Wind_from_direction <= 203 && Data?.Wind_from_direction >= 248)
+            {
+                return "sydväst";
+            }
+            else if (Data?.Wind_from_direction <= 248 && Data?.Wind_from_direction >= 293)
+            {
+                return "väst";
+            }
+            else if (Data?.Wind_from_direction <= 293 && Data?.Wind_from_direction >= 338)
+            {
+                return "nordväst";
+            }
+            else
+            {
+                return "";
+            }
+        }
+
         public string SymbolCodeData()
         {
             if (Data?.Symbol_code == 1)
