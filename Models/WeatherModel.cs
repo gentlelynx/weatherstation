@@ -6,11 +6,12 @@ namespace WeatherStation
     {
         //var type VariableName
         public string CreatedTime { get; set; } = "";
-        public WeatherGeometry? Geometry { get; set; } 
+        public WeatherGeometry? Geometry { get; set; }
         public TimeSeriesEntry[] TimeSeries { get; set; } = [];
         public override string ToString()
         {
-            return TimeSeries[1].Data.Air_temperature.ToString();
+            return CreatedTime;
+            //return TimeSeries[1].Data.Air_temperature.ToString();
         }
     }
     public class WeatherGeometry
@@ -21,7 +22,7 @@ namespace WeatherStation
     }
     public class TimeSeriesEntry
     {
-        public string Time { get; set; } = "";
+        public DateTime Time { get; set; }
         public DataEntry? Data { get; set; }
         public class DataEntry
         {
@@ -33,6 +34,123 @@ namespace WeatherStation
             public float Air_pressure_at_mean_sea_level { get; set; } = 0;
             public float Precipitation_amount_min { get; set; } = 0;
             public float Precipitation_amount_max { get; set; } = 0;
+            public float Symbol_code { get; set; } = 0;
+        }
+
+        public string SymbolCodeData()
+        {
+            if (Data?.Symbol_code == 1)
+            {
+                return "Klart";
+            }
+            else if (Data?.Symbol_code == 2)
+            {
+                return "Lätt molnighet";
+            }
+            else if (Data?.Symbol_code == 3)
+            {
+                return "Halvklart";
+            }
+            else if (Data?.Symbol_code == 4)
+            {
+                return "Molnigt";
+            }
+            else if (Data?.Symbol_code == 5)
+            {
+                return "Mycket moln";
+            }
+            else if (Data?.Symbol_code == 6)
+            {
+                return "Mulet";
+            }
+            else if (Data?.Symbol_code == 7)
+            {
+                return "Dimma";
+            }
+            else if (Data?.Symbol_code == 8)
+            {
+                return "Lätt regnskur";
+            }
+            else if (Data?.Symbol_code == 9)
+            {
+                return "Regnskur";
+            }
+            else if (Data?.Symbol_code == 10)
+            {
+                return "Kraftig regnskur";
+            }
+            else if (Data?.Symbol_code == 11)
+            {
+                return "Åskskur";
+            }
+            else if (Data?.Symbol_code == 12)
+            {
+                return "Lätt by av regn och snö";
+            }
+            else if (Data?.Symbol_code == 13)
+            {
+                return "By av regn och snö";
+            }
+            else if (Data?.Symbol_code == 14)
+            {
+                return "Kraftig by av regn och snö";
+            }
+            else if (Data?.Symbol_code == 15)
+            {
+                return "Lätt snöby";
+            }
+            else if (Data?.Symbol_code == 16)
+            {
+                return "Snöby";
+            }
+            else if (Data?.Symbol_code == 17)
+            {
+                return "Kraftig snöby";
+            }
+            else if (Data?.Symbol_code == 18)
+            {
+                return "Lätt regn";
+            }
+            else if (Data?.Symbol_code == 19)
+            {
+                return "Regn";
+            }
+            else if (Data?.Symbol_code == 20)
+            {
+                return "Kraftigt regn";
+            }
+            else if (Data?.Symbol_code == 21)
+            {
+                return "Åska";
+            }
+            else if (Data?.Symbol_code == 22)
+            {
+                return "Lätt snöblandat regn";
+            }
+            else if (Data?.Symbol_code == 23)
+            {
+                return "Snöblandat regn";
+            }
+            else if (Data?.Symbol_code == 24)
+            {
+                return "Kraftigt snöblandat regn";
+            }
+            else if (Data?.Symbol_code == 25)
+            {
+                return "Lätt snöfall";
+            }
+            else if (Data?.Symbol_code == 26)
+            {
+                return "Snöfall";
+            }
+            else if (Data?.Symbol_code == 27)
+            {
+                return "Ymnigt snöfall";
+            }
+            else
+            {
+                return "";
+            }
         }
     }
 }

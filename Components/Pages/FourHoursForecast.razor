@@ -1,25 +1,55 @@
+@using WeatherStation
+@inject IHttpClientFactory _clientFactory
+
 <section class="four-hour">
     <h2 class="hidden">Väder närmaste fyra timmar</h2>
     <ul>
         <li>
-            <h3>Kl.11</h3>
-            <p>Soligt</p>
-            <p>20.0C</p>
+            <h3 class="numbers">@timeNow.AddHours(value: 1)</h3>
+            <p class="icon">@forecastSkovde?.TimeSeries[1].SymbolCodeData()</p>
+            <p class="numbers">@forecastSkovde?.TimeSeries[1]?.Data?.Air_temperature°C</p>
         </li>
         <li>
-            <h3>Kl.12</h3>
-            <p>Molnigt</p>
-            <p>19.0C</p>
+            <h3 class="numbers">@timeNow.AddHours(value: 2)</h3>
+            <p class="icon">@forecastSkovde?.TimeSeries[2].SymbolCodeData()</p>
+            <p class="numbers">@forecastSkovde?.TimeSeries[2]?.Data?.Air_temperature°C</p>
         </li>
         <li>
-            <h3>Kl.12</h3>
-            <p>Lätt regn</p>
-            <p>16.0C</p>
+            <h3 class="numbers">@timeNow.AddHours(value: 3)</h3>
+            <p class="icon">@forecastSkovde?.TimeSeries[3].SymbolCodeData()</p>
+            <p class="numbers">@forecastSkovde?.TimeSeries[3]?.Data?.Air_temperature°C</p>
         </li>
         <li>
-            <h3>Kl.13</h3>
-            <p>Måttligt regn</p>
-            <p>15.0C</p>
+            <h3 class="numbers">@timeNow.AddHours(value: 4)</h3>
+            <p class="icon">@forecastSkovde?.TimeSeries[4].SymbolCodeData()</p>
+            <p class="numbers">@forecastSkovde?.TimeSeries[4]?.Data?.Air_temperature°C</p>
         </li>
     </ul>
 </section>
+
+@code {
+    public WeatherClass? forecastSkovde;
+    string? errorMessage;
+
+    TimeOnly timeNow = TimeOnly.FromDateTime(DateTime.Now);
+
+    protected override async Task OnInitializedAsync()
+    {
+        var request = new HttpRequestMessage(HttpMethod.Get,
+        "https://opendata-download-metfcst.smhi.se/api/category/snow1g/version/1/geotype/point/lon/13.8406/lat/58.3953/data.json");
+
+        var client = _clientFactory.CreateClient();
+
+        HttpResponseMessage response = await client.SendAsync(request);
+
+        if (response.IsSuccessStatusCode)
+        {
+            forecastSkovde = await response.Content.ReadFromJsonAsync<WeatherClass>();
+            errorMessage = null;
+        }
+        else
+        {
+            errorMessage = $"Error fetching data: {response.ReasonPhrase}";
+        }
+    }
+}
