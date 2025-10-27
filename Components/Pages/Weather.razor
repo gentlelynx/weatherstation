@@ -1,6 +1,52 @@
-@using WeatherStation
+@page "/location"
 @inject IHttpClientFactory _clientFactory
+@using Microsoft.AspNetCore.Http.Features
+@using Microsoft.Extensions.Options
+@using System.Runtime.CompilerServices
+@using System.Threading.Tasks
+@using WeatherStation
+@rendermode InteractiveServer
 
+<PageTitle>Väder i Skövde</PageTitle>
+<section id="location" class="location">
+    <div id="date" class="date numbers">@DateOnly.FromDateTime(DateTime.Now)</div>
+    <h2 class="Skövde">Skövde</h2>
+    <div id="time" class="numbers">@TimeOnly.FromDateTime(DateTime.Now)</div>
+</section>
+<section class="temp-prec">
+    <div class="temperature">
+        <h2>Temperatur</h2>
+        <p class="numbers temp-size">@forecastSkovde?.TimeSeries[0]?.Data?.Air_temperature</p>
+    </div>
+    <div class="precipitation">
+        <h2>Nederbörd</h2>
+        <p class="numbers">@forecastSkovde?.TimeSeries[0]?.Data?.Precipitation_amount_min -
+            @forecastSkovde?.TimeSeries[0]?.Data?.Precipitation_amount_max</p>
+    </div>
+</section>
+<section class="forecast">
+    <article>
+        <h2>Prognos</h2>
+        <p class="icon">@forecastSkovde?.TimeSeries[0].SymbolCodeData()</p>
+    </article>
+    <DawnDusk />
+</section>
+<section class="wind-pres-humi">
+    <section class="wind marginless">
+        <h2>Vind</h2>
+        <p>Syd-väst</p>
+        <p class="numbers">@forecastSkovde?.TimeSeries[0]?.Data?.Wind_speed
+            (@forecastSkovde?.TimeSeries[0]?.Data?.Wind_speed_of_gust)m/s</p>
+    </section>
+    <section class="pressure marginless">
+        <h2>Lufttryck</h2>
+        <p class="numbers">@forecastSkovde?.TimeSeries[0]?.Data?.Air_pressure_at_mean_sea_level</p>
+    </section>
+    <section class="humidity marginless">
+        <h2>Luftfuktighet</h2>
+        <p class="numbers">@forecastSkovde?.TimeSeries[0]?.Data?.Relative_humidity%</p>
+    </section>
+</section>
 <section class="four-hour">
     <h2 class="hidden">Väder närmaste fyra timmar</h2>
     <ul>
@@ -32,7 +78,6 @@
     string? errorMessage;
 
     TimeOnly timeNow = TimeOnly.FromDateTime(DateTime.Now);
-
     protected override async Task OnInitializedAsync()
     {
         var request = new HttpRequestMessage(HttpMethod.Get,

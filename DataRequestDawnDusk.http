@@ -1,0 +1,1 @@
+GET https://api.sunrisesunset.io/json?lat=58.25279&lng=13.05964&time_format=24

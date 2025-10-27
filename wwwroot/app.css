@@ -37,10 +37,11 @@ section {
     font-family: 'Aldrich';
 }
 
-.icon {
-    padding: 1rem;
+.icon, .weather-icons{
+    padding: 0.5rem;
     margin: 0.5rem;
     font-family: 'Aldrich';
+    justify-content: center;
 }
 
 .marginless {

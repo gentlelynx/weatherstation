@@ -1,4 +1,10 @@
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using WeatherStation.Components.Pages;
+
 
 namespace WeatherStation
 {
@@ -153,5 +159,16 @@ namespace WeatherStation
             }
         }
     }
+
+    public class RiseSetkEntry
+    {
+        public RiseSet? Results { get; set; }
+
+        public class RiseSet
+        {
+            public TimeOnly Sunrise { get; set; }
+            public TimeOnly Sunset { get; set; }
+        }
+    }   
 }
 
