@@ -1,17 +1,10 @@
 ﻿@page "/"
+@inject IHttpClientFactory _clientFactory
 
 <PageTitle>Väderstation</PageTitle>
 
-<h1>Väderstation</h1>
+<h1 class="hidden">Väderstation</h1>
 
 <article>
-    <Location />
-    <Temperature />
-    <Precipitation />
-    <Forecast />
-    <DawnDusk />
-    <Wind />
-    <Pressure />
-    <Humidity />
-    <FourHoursForecast />
+    <Weather />
 </article>
