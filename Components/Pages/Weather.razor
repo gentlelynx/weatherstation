@@ -10,72 +10,76 @@
 <PageTitle>Väder i Skövde</PageTitle>
 
 <!-- LOCATION -->
-<section id="location" class="location">
-    <div id="date" class="date numbers">@DateOnly.FromDateTime(DateTime.Now)</div>
-    <h2 class="Skövde">Skövde</h2>
+<section id="location" class="location-section">
+    <div id="date" class="numbers">@DateOnly.FromDateTime(DateTime.Now)</div>
+    <h2 class="Skovde">Skövde</h2>
     <div id="time" class="numbers">@TimeOnly.FromDateTime(DateTime.Now)</div>
 </section>
 
 <!-- TEMPERATURE, PRECIPITATION -->
-<section class="temp-prec">
+<section class="temp-prec-section">
     <div class="temperature">
         <h2>Temperatur</h2>
-        <span class="weather-icons">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="qi-1009"
-                viewBox="0 0 16 16">
-                <path
-                    d="M3 2a.6.6 0 0 0-.6.6v1.8H.6a.6.6 0 1 0 0 1.2h1.8v1.8a.6.6 0 0 0 1.2 0V5.6h1.8a.6.6 0 1 0 0-1.2H3.6V2.6A.6.6 0 0 0 3 2Zm8.5 1a.5.5 0 0 0-.5.5v6.063a2 2 0 1 0 1 0V3.5a.5.5 0 0 0-.5-.5Z" />
-                <path
-                    d="m10.2 8.399-.532.356a3.3 3.3 0 1 0 3.665 0l-.533-.356V2.5a1.3 1.3 0 1 0-2.6 0v5.899ZM9 2.5a2.5 2.5 0 0 1 5 0v5.258a4.5 4.5 0 1 1-5 0V2.5Z" />
-            </svg>
-        </span>
-        <p class="numbers temp-size">@forecastSkovde?.TimeSeries[0]?.Data?.Air_temperature°C</p>
+        <div class="temp">
+            <span class="weather-icons">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="qi-1009"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M3 2a.6.6 0 0 0-.6.6v1.8H.6a.6.6 0 1 0 0 1.2h1.8v1.8a.6.6 0 0 0 1.2 0V5.6h1.8a.6.6 0 1 0 0-1.2H3.6V2.6A.6.6 0 0 0 3 2Zm8.5 1a.5.5 0 0 0-.5.5v6.063a2 2 0 1 0 1 0V3.5a.5.5 0 0 0-.5-.5Z" />
+                    <path
+                        d="m10.2 8.399-.532.356a3.3 3.3 0 1 0 3.665 0l-.533-.356V2.5a1.3 1.3 0 1 0-2.6 0v5.899ZM9 2.5a2.5 2.5 0 0 1 5 0v5.258a4.5 4.5 0 1 1-5 0V2.5Z" />
+                </svg>
+            </span>
+            <p class="numbers">@forecastSkovde?.TimeSeries[0]?.Data?.Air_temperature°C</p>
+        </div>
     </div>
     <div class="precipitation">
-        <h2>Nederbörd</h2>
-        <div class="weather-icons">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="qi-399"
-                viewBox="0 0 16 16">
-                <path
-                    d="M1 11a4 4 0 1 0 8 0c0-.46-.132-1.083-.41-1.853-.273-.757-.666-1.6-1.137-2.477C6.736 5.337 5.859 3.958 5 2.72c-.86 1.238-1.736 2.617-2.453 3.95-.471.878-.864 1.72-1.138 2.477C1.132 9.917 1 10.541 1 11Zm3.385-9.146C4.593 1.56 4.8 1.274 5 1c.201.274.407.56.615.854C7.703 4.82 10 8.726 10 11a5 5 0 1 1-10 0c0-2.274 2.297-6.181 4.385-9.146ZM10.8 5.333c0-.184.062-.472.223-.868.155-.384.383-.819.662-1.28.384-.636.85-1.295 1.315-1.901.466.606.93 1.265 1.316 1.901.278.461.505.896.661 1.28.16.396.223.684.223.868 0 .463-.206.929-.61 1.288A2.401 2.401 0 0 1 13 7.2a2.401 2.401 0 0 1-1.59-.579c-.404-.36-.61-.825-.61-1.288ZM12.488.637C11.276 2.193 10 4.167 10 5.333c0 .708.316 1.386.879 1.886.562.5 1.325.781 2.121.781s1.559-.28 2.121-.781c.563-.5.879-1.178.879-1.886 0-1.166-1.276-3.14-2.488-4.696A28.476 28.476 0 0 0 13 0c-.167.202-.338.415-.512.637Z" />
-            </svg>
+        <h2>Nederbörd (mm)</h2>
+        <div class="prec">
+            <div class="weather-icons">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="qi-399"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M1 11a4 4 0 1 0 8 0c0-.46-.132-1.083-.41-1.853-.273-.757-.666-1.6-1.137-2.477C6.736 5.337 5.859 3.958 5 2.72c-.86 1.238-1.736 2.617-2.453 3.95-.471.878-.864 1.72-1.138 2.477C1.132 9.917 1 10.541 1 11Zm3.385-9.146C4.593 1.56 4.8 1.274 5 1c.201.274.407.56.615.854C7.703 4.82 10 8.726 10 11a5 5 0 1 1-10 0c0-2.274 2.297-6.181 4.385-9.146ZM10.8 5.333c0-.184.062-.472.223-.868.155-.384.383-.819.662-1.28.384-.636.85-1.295 1.315-1.901.466.606.93 1.265 1.316 1.901.278.461.505.896.661 1.28.16.396.223.684.223.868 0 .463-.206.929-.61 1.288A2.401 2.401 0 0 1 13 7.2a2.401 2.401 0 0 1-1.59-.579c-.404-.36-.61-.825-.61-1.288ZM12.488.637C11.276 2.193 10 4.167 10 5.333c0 .708.316 1.386.879 1.886.562.5 1.325.781 2.121.781s1.559-.28 2.121-.781c.563-.5.879-1.178.879-1.886 0-1.166-1.276-3.14-2.488-4.696A28.476 28.476 0 0 0 13 0c-.167.202-.338.415-.512.637Z" />
+                </svg>
+            </div>
+            <p class="numbers">@forecastSkovde?.TimeSeries[0]?.Data?.Precipitation_amount_min -
+                @forecastSkovde?.TimeSeries[0]?.Data?.Precipitation_amount_max</p>
         </div>
-        <p class="numbers">@forecastSkovde?.TimeSeries[0]?.Data?.Precipitation_amount_min -
-            @forecastSkovde?.TimeSeries[0]?.Data?.Precipitation_amount_max mm</p>
     </div>
 </section>
 
 <!-- FORECAST -->
-<section class="forecast">
-    <article>
-        <h2>Prognos</h2>
+<section class="forecast-dd-section">
+    <div class="forecast">
+        <h2>Prognosen just nu:</h2>
         <div class="weather-icons">
-            <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill="currentColor" class="qi-101"
+            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="currentColor" class="qi-101"
                 viewBox="0 0 16 16">
                 <path
                     d="M8.406 15.985a4.766 4.766 0 0 0 3.446-1.449.323.323 0 0 1 .341-.074c.31.112.645.173.995.173 1.553 0 2.812-1.209 2.812-2.7s-1.26-2.7-2.813-2.7c-.157 0-.312.013-.463.037a.32.32 0 0 1-.32-.137c-.824-1.29-2.306-2.15-3.998-2.15-1.682 0-3.157.85-3.984 2.128a.318.318 0 0 1-.3.138 2.962 2.962 0 0 0-.31-.016C2.26 9.235 1 10.444 1 11.935s1.26 2.7 2.813 2.7c.302 0 .594-.046.867-.13a.322.322 0 0 1 .324.076 4.768 4.768 0 0 0 3.402 1.404Zm3.661-2.606c-.161-.116-.41-.088-.52.074a3.788 3.788 0 0 1-3.14 1.632 3.792 3.792 0 0 1-3.091-1.56c-.106-.147-.326-.178-.482-.08-.294.183-.645.29-1.021.29-1.036 0-1.876-.806-1.876-1.8s.84-1.8 1.875-1.8c.241 0 .471.044.683.123.173.065.383-.008.455-.172.569-1.293 1.902-2.2 3.456-2.2 1.575 0 2.924.931 3.48 2.253.075.18.314.254.496.17.244-.111.517-.174.806-.174 1.035 0 1.874.806 1.874 1.8s-.839 1.8-1.874 1.8c-.42 0-.808-.132-1.12-.356ZM4.995 1.762a.516.516 0 1 0 1.007-.224L5.746.388A.516.516 0 0 0 4.74.612l.255 1.15ZM1.273 3.52l.994.633a.516.516 0 0 0 .555-.87l-.995-.633a.516.516 0 0 0-.554.87ZM.878 8.028l1.15-.256a.516.516 0 0 0-.223-1.008l-1.15.256a.516.516 0 1 0 .223 1.008Zm10.238-2.28a.535.535 0 0 0 .112-.012l1.15-.256a.516.516 0 1 0-.224-1.008l-1.15.256a.516.516 0 0 0 .112 1.02ZM8.772 2.713a.516.516 0 0 0 .712-.158l.633-.994a.516.516 0 0 0-.87-.554l-.633.994a.516.516 0 0 0 .158.712ZM3.07 7.017c.07.303.182.596.33.87a3.13 3.13 0 0 0 .909-.486 2.453 2.453 0 0 1-.233-.608 2.504 2.504 0 0 1 4.888-1.088c.003.013.002.026.005.038a5.42 5.42 0 0 1 1.063.25 3.497 3.497 0 0 0-.061-.512A3.535 3.535 0 1 0 3.07 7.017Z" />
             </svg>
         </div>
         <p class="icon">@forecastSkovde?.TimeSeries[0].SymbolCodeData()</p>
-    </article>
+    </div>
 
     <DawnDusk />
 
 </section>
 
 <!-- WIND, PRESSURE, HUMIDITY -->
-<section class="wind-pres-humi">
+<section class="wind-pres-humi-section">
     <section class="wind marginless">
         <h2>Vind</h2>
-        <div class="weather-icons">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="qi-2208"
+        <div class="wind weather-icons">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="qi-2208"
                 viewBox="0 0 16 16">
                 <path d="M2 6h6a1 1 0 1 0-.943-1.333.5.5 0 1 1-.943-.334A2 2 0 1 1 8 7H2a.5.5 0 0 1 0-1Z" />
                 <path
                     d="M11.079 5.375A2.5 2.5 0 0 1 16 6c0 1.397-1.24 2.5-2.5 2.5H.5a.5.5 0 0 1 0-1h13c.74 0 1.5-.688 1.5-1.5a1.5 1.5 0 0 0-2.953-.375.5.5 0 1 1-.968-.25ZM2.5 9.5A.5.5 0 0 1 3 9h8a2 2 0 1 1-1.886 2.667.5.5 0 1 1 .943-.334A1 1 0 1 0 11 10H3a.5.5 0 0 1-.5-.5Z" />
             </svg>
+            <p class="icons">@forecastSkovde?.TimeSeries[0].WindDirection()</p>
         </div>
-        <p class="icons">@forecastSkovde?.TimeSeries[0].WindDirection()</p>
         <p class="numbers">@forecastSkovde?.TimeSeries[0]?.Data?.Wind_speed
             (@forecastSkovde?.TimeSeries[0]?.Data?.Wind_speed_of_gust)m/s</p>
     </section>
@@ -90,7 +94,7 @@
 </section>
 
 <!-- FOUR HOUR FORECAST -->
-<section class="four-hour">
+<section class="four-hour-section">
     <h2 class="hidden">Väder närmaste fyra timmar</h2>
     <ul>
         <li>
@@ -155,7 +159,8 @@
     string? errorMessage;
     //timeNow variable is used for the four hour forecast
     TimeOnly timeNow = TimeOnly.FromDateTime(DateTime.Now);
-    //This task will run as soon as the page loads, creating a new HttpClient, fetching data from SMHI Open API and initializing forecastSkovde
+    /*This task will run as soon as the page loads, creating a new HttpClient, fetching data from SMHI Open API and
+    initializing forecastSkovde*/
     protected override async Task OnInitializedAsync()
     {
         var request = new HttpRequestMessage(HttpMethod.Get,

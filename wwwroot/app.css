@@ -17,11 +17,8 @@ html, body {
     background-color: #0F4B61;
 }
 
-.content {
-    padding-top: 1.1rem;
-}
-
 main {
+    padding-top: 1.1rem;
     display: flex;
     max-width: 35em;
     margin: auto;
@@ -37,85 +34,17 @@ section {
     font-family: 'Aldrich';
 }
 
-.icon, .weather-icons{
-    padding: 0.5rem;
-    margin: 0.5rem;
-    font-family: 'Aldrich';
-    justify-content: center;
-}
-
-.marginless {
-    margin: 0;
-}
-
-.location {
-    justify-content: center;
-    grid-template-columns: 1fr 1fr 1fr;
-    font-family: 'Roboto', sans-serif;
-}
-
-.temp-prec {
-    grid-template-rows: 1fr;
-    grid-template-columns: 1fr 1fr;
-    justify-content: space-evenly;
-    padding: 0;
-}
-
-.wind-pres-humi {
-    grid-template-rows: 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
-    justify-content: space-evenly;
-    padding: 0;
-}
-
-.forecast {
-    grid-template-rows: 1fr;
-    grid-template-columns: 2fr 1fr;
-    padding: 0;
-}
-
-.dd {
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr;
-}
-
 h2, h3 {
     display: grid;
     justify-content: center;
     font-size: larger;
     padding: 1rem;
-}
 
-.Skövde {
-    margin: 0;
-    padding: 1rem;
-    justify-self: center;
-    font-size: x-large;
-}
-
-.numbers {
-    margin: 0;
-    padding: 1rem;
-    justify-self: center;
-    font-family: 'ShareTechMono';
-    font-size: large;
-}
-
-.temp-size {
-    font-size: x-large;
-}
-
-.temperature {
-    border-right: #DBE3FF 3px solid;
-}
-
-.hidden {
-    height: 0;
-    width: 0;
-    overflow: hidden;
-    transform: scale(0);
-    margin: 0;
-    padding: 0;
+    .Skovde {
+        margin: 0;
+        justify-self: center;
+        font-size: xx-large;
+    }
 }
 
 ul {
@@ -129,5 +58,133 @@ ul {
 }
 
 li {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
     border: #DBE3FF 2px solid;
+}
+
+.location-section {
+    justify-content: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    font-family: 'Roboto', sans-serif;
+}
+
+.numbers {
+    display: grid;
+    margin: 0;
+    padding: 1rem;
+    justify-self: center;
+    font-family: 'ShareTechMono';
+    font-size: large;
+}
+
+.temp-prec-section {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    padding: 0;
+}
+
+.temp, .prec {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 2fr;
+}
+
+.temperature {
+    border-right: #DBE3FF 4px solid;
+}
+
+.numbers {
+    margin: 0;
+    padding: 1rem;
+    justify-self: center;
+    font-family: 'ShareTechMono';
+    font-size: large;
+}
+
+.icon, .weather-icons {
+    display: grid;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    font-family: 'Aldrich';
+    justify-items: center;
+    align-items: center;
+}
+
+.marginless {
+    margin: 0;
+}
+
+.dawn {
+    border-top: none;
+    border-right: none;
+}
+
+.dusk {
+    border-top: none;
+    border-bottom: none;
+    border-right: none;
+}
+
+.wind-pres-humi-section {
+    grid-template-rows: 1fr;
+    grid-template-columns: 2fr 1fr 1fr;
+    padding: 0;
+}
+
+.wind, .pressure {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    border-left: 0;
+    border-top: 0;
+    border-bottom: 0;
+}
+
+.humidity {
+    border: 0;
+}
+
+.forecast-dd-section {
+    grid-template-rows: 1fr;
+    grid-template-columns: 2fr 1fr;
+    padding: 0;
+}
+
+.forecast {
+    display: grid;
+}
+
+.dd-section {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+}
+
+.dawn-dusk {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    padding: 0;
+    margin: 0;
+}
+
+.descriptive {
+    padding: 1rem 0.5rem;
+    font-size: medium;
+}
+
+.four-hour-section {
+    padding: 0;
+}
+
+.hidden {
+    height: 0;
+    width: 0;
+    overflow: hidden;
+    transform: scale(0);
+    margin: 0;
+    padding: 0;
 }
