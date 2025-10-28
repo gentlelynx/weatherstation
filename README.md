@@ -33,6 +33,7 @@ The screenshot below shows what the application should look like:
 
 ## 📂 Project Structure
 
+```
 WeatherStation
     ├───bin
     │   ├───Debug
@@ -67,6 +68,6 @@ WeatherStation
                 │   ├───css
                 │   └───js
                 └───fonts
-
+```
 
 
