@@ -13,11 +13,11 @@ Weather Station is a static weather application developed using the Blazor frame
 
 ## 🛠 Technologies
 
-[C#](https://learn.microsoft.com/en-us/dotnet/csharp/?icid=SSM_AS_CSHARP)
-[Blazor Framework](https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor)
-[SMHI Open Data API](https://opendata.smhi.se/)
-[SunriseSunset.io API](https://sunrisesunset.io/api/)
-[QWeather Icons Library](https://icons.qweather.com/en/)
+- [C#](https://learn.microsoft.com/en-us/dotnet/csharp/?icid=SSM_AS_CSHARP)
+- [Blazor Framework](https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor)
+- [SMHI Open Data API](https://opendata.smhi.se/)
+- [SunriseSunset.io API](https://sunrisesunset.io/api/)
+- [QWeather Icons Library](https://icons.qweather.com/en/)
 
 ## ⚙️ Installation
 
