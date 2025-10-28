@@ -29,7 +29,7 @@ The base location is hardcoded for Skövde, Sweden, but you can easily switch it
 
 The screenshot below shows what the application should look like:
 
-![Screenshot](../weatherstation_screenshot.png)
+![Screenshot](./weatherstation_screenshot.png)
 
 ## 📂 Project Structure
 
