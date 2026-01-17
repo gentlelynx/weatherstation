@@ -1,17 +1,17 @@
-# 🌦️ Weather Station
+# Weather Station
 
-## 📖 Description
+## Description
 
 Weather Station is a static weather application developed using the Blazor framework, and written in C#, HTML and CSS. The weather information is fetched upon application start from the Swedish Meteorological and Hydrological Institute Open Data API, with the exception of the sunrise and sunset information that is provided by SunriseSunset.io. The icons are provided by QWeather. 
 
-## 📑 Table of Contents
+## Table of Contents
 
-- 📖 [Description](#-description)
-- 🛠️ [Technologies](#-technologies)
-- ⚙️ [Installation](#-installation)
-- 📂 [Project Structure](#-project-structure)
+- [Description](#-description)
+- [Technologies](#-technologies)
+- [Installation](#-installation)
+- [Project Structure](#-project-structure)
 
-## 🛠 Technologies
+## Technologies
 
 - [C#](https://learn.microsoft.com/en-us/dotnet/csharp/?icid=SSM_AS_CSHARP)
 - [Blazor Framework](https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor)
@@ -19,7 +19,7 @@ Weather Station is a static weather application developed using the Blazor frame
 - [SunriseSunset.io API](https://sunrisesunset.io/api/)
 - [QWeather Icons Library](https://icons.qweather.com/en/)
 
-## ⚙️ Installation
+## Installation
 
 To run a Blazor program which is a .NET application, it is recommended to do this with either Visual Studio, or Visual Studio Code, and have .NET SDK as well as C# Dev Kit. Follow [these](https://dotnet.microsoft.com/en-us/learn/aspnet/blazor-tutorial/install) instructions to aquire them all.
 
@@ -31,7 +31,7 @@ The screenshot below shows what the application should look like:
 
 ![Screenshot](./weatherstation_screenshot.png)
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 WeatherStation
