@@ -21,7 +21,7 @@ Weather Station is a static weather application developed using the Blazor frame
 
 ## Installation
 
-To run a Blazor program which is a .NET application, it is recommended to do this with either Visual Studio, or Visual Studio Code, and have .NET SDK as well as C# Dev Kit. Follow [these](https://dotnet.microsoft.com/en-us/learn/aspnet/blazor-tutorial/install) instructions to aquire them all.
+To run a Blazor program which is a .NET 9 application, it is recommended to do this with either Visual Studio, or Visual Studio Code, and have .NET SDK as well as C# Dev Kit. Follow [these](https://dotnet.microsoft.com/en-us/learn/aspnet/blazor-tutorial/install) instructions to aquire them all. 
 
 To test the application, download the repository code and [run it](https://dotnet.microsoft.com/en-us/learn/aspnet/blazor-tutorial/run).
 
